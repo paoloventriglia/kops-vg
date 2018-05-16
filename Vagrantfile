@@ -21,7 +21,7 @@ sudo mv kops-linux-amd64 /usr/local/bin/kops
 sudo apt-get install software-properties-common
 sudo apt-add-repository universe
 sudo apt-get update
-sudo apt-get install python-pip
+sudo apt-get -y install python-pip
 sudo pip install awscli
 SCRIPT
 
