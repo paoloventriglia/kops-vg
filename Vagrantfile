@@ -11,17 +11,15 @@ Vagrant.configure("2") do |config|
  end
 end
 
-#Install kops
+#Install kops, kubectl, pyhton-pip, awscli and terraform
 $script = <<-SCRIPT
-apt -y install curl
 sudo snap install kubectl --classic
 sudo curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
 sudo chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
-sudo apt-get install software-properties-common
 sudo apt-add-repository universe
 sudo apt-get update
-sudo apt-get -y install python-pip
+sudo apt-get install -y software-properties-common python-pip unzip
 sudo pip install awscli
 SCRIPT
 
